@@ -1,10 +1,10 @@
-package com.mastery.java.task.service;
+package com.mastery.java.task.dao;
 
 import com.mastery.java.task.dto.Employee;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface EmployeeDAO {
 
     //create
     void add(Employee employee);
