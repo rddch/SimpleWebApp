@@ -16,7 +16,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void add(Employee employee) {
-        String sql = "INSERT INTO employee (first_name, last_name, department_id, job_title, gender,date_of_birth) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO employee (first_name, last_name, department_id, job_title, gender,date_of_birth) VALUES (?,?,?,?,CAST(? AS gender),?)";
         jdbcTemplate.update(sql, employee.getFirstName(), employee.getLastName(), employee.getDepartmentId(), employee.getJobTitle(),
                 employee.getGender(),employee.getDateOfBirth());
     }
@@ -35,7 +35,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void update(Employee employee) {
-        String sql = "UPDATE employee SET first_name=?, last_name=?, department_id=?, job_title=?, gender,date_of_birth=? WHERE employee_id=?";
+        String sql = "UPDATE employee SET first_name=?, last_name=?, department_id=?, job_title=?, gender=CAST(? AS gender),date_of_birth=? WHERE employee_id=?";
         jdbcTemplate.update(sql, employee.getEmployeeId(), employee.getFirstName(), employee.getLastName(), employee.getDepartmentId(),
                 employee.getJobTitle(), employee.getGender(),employee.getDateOfBirth());
     }
