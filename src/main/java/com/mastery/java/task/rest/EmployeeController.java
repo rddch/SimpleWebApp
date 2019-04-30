@@ -56,7 +56,7 @@ public class EmployeeController {
     @PostMapping("/updateEmployee")
     public String updateEmployee(@ModelAttribute("employee")Employee employee) {
         employeeService.update(employee);
-        return "redirect:/employee/" + employee.getEmployee_id();
+        return "redirect:/employee/" + employee.getEmployeeId();
     }
 
     @GetMapping("/update/{id}")
